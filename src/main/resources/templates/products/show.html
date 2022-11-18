@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{css/heroic-features.css}" rel="stylesheet">
+</head>
+<body>
+<div th:include="admin/template_admin.html::header" ></div>
+<div class="container">
+    <h1 class="mt-4 mb-3">
+        Spring eCommerce <small>Products</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Viev Products</li>
+    </ol>
+    <a class="btn btn-primary" th:href="@{/products/create}" > Create Product</a>
+    <h2>Products</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Inventory</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="produc:${products}">
+            <td th:text="${products.name}"></td>
+            <td th:text="${products.description}"></td>
+            <td th:text="${products.quantity}"></td>
+            <td th:text="${products.price}"></td>
+            <td><a class="btn btn-warning" th:href="@{products/edit/{id} (id=${product.id}) }">Edit</a></td>
+            <td><a class="btn btn-danger" th:href="@{products/delete/{id} (id=${product.id}) }">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div th:include="admin/template_admin.html::footer" ></div>
+<script th:src="@{vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
