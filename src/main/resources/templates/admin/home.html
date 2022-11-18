@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Title</title>
+  <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet" >
+  <link th:href="@{css/heroic-features.css}" rel="stylesheet" >
+</head>
+<body>
+  <div th:include="admin/template_admin.html::header"></div>
+  <div class="container">
+    <header class="jumbotron my-4">
+      <h1 class="display-3">E-shop project</h1>
+      <p class="lead">E-commerce</p>
+    </header>
+    <div class="row text-center">
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img src="http://placehold.it/500x325" alt="" class="card-img-top">
+          <div class="card-body">
+            <p class="card-text">Name the Product</p>
+          </div>
+          <div class="card-footer">
+            <a href="producthome.html" class="btn btn-success">View Product</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+          <div class="card-body">
+            <p class="card-text">Name the Product</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-success">View Product</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+          <div class="card-body">
+            <p class="card-text">Name the Product</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-success">View Product</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+          <div class="card-body">
+            <p class="card-text">Name the Product</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-success">View Product</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div th:include="admin/template_admin.html::footer"></div>
+  <script th:src="@{vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
