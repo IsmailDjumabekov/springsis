@@ -2,7 +2,7 @@
 <div th:fragment="header">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a href="#" class="navbar-brand">E-Shop</a>
+			<a th:href="@{admin}" class="navbar-brand">E-Shop</a>
 			<form action="#" method="post" class="form-inline my-2 my-lg-0">
 				<input class="form-control mr-sm-2" type="search" name="name" placeholder="search here" aria-label="search" autocomplete="off">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -13,13 +13,12 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a href="carrito.html" class="nav-link">
-						Cart
-					</a>
-					</li>
-					<li class="nav-item"><a href="login.html" class="nav-link">
-						Login
-					</a>
+					<li class="nav-item dropdown">
+						<a href="" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">Admin</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<a th:href="@{/products}" class="dropdown-item">Products</a>
+						</div>
 					</li>
 				</ul>
 			</div>
