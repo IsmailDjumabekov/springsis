@@ -1,7 +1,6 @@
 package com.example.springecommerce.model;
 
 import javax.persistence.*;
-
 @Entity
 @Table(name = "products")
 public class Product {
@@ -19,8 +18,6 @@ public class Product {
     public Product(){
 
     }
-
-
     public Product(Integer id, String name, String description, String image, double price, int quantity, User user) {
         this.id = id;
         this.name = name;

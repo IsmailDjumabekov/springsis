@@ -1,6 +1,5 @@
 package com.example.springecommerce.model;
 
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,7 +9,6 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String name;
     private String username;
     private String email;
@@ -18,7 +16,6 @@ public class User {
     private String telephone;
     private String type;
     private String password;
-
     @OneToMany(mappedBy = "user")
     private List<Product> products;
 
@@ -28,8 +25,9 @@ public class User {
 
     }
 
-    public User(String name, String username, String email, String address, String telephone, String type, String password, Integer id) {
+    public User(Integer id, String name, String username, String email, String address, String telephone, String type, String password) {
         super();
+        this.id = id;
         this.name = name;
         this.username = username;
         this.email = email;
@@ -37,7 +35,6 @@ public class User {
         this.telephone = telephone;
         this.type = type;
         this.password = password;
-        this.id = id;
     }
 
     public Integer getId() {
