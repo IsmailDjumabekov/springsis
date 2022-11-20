@@ -6,8 +6,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Title</title>
-  <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
-  <link th:href="@{css/heroic-features.css}" rel="stylesheet">
+  <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
 </head>
 <body>
 <div th:include="user/template_user.html::header" ></div>
@@ -56,7 +56,7 @@
   </div>
 </div>
 <div th:include="user/template_user.html::footer" ></div>
-<script th:src="@{vendor/jquery/jquery.min.js}"></script>
-<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
