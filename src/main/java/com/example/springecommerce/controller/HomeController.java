@@ -3,7 +3,9 @@ package com.example.springecommerce.controller;
 import com.example.springecommerce.model.DetailOrder;
 import com.example.springecommerce.model.Order;
 import com.example.springecommerce.model.Product;
+import com.example.springecommerce.model.User;
 import com.example.springecommerce.service.ProductService;
+import com.example.springecommerce.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class HomeController {
     private final Logger log = LoggerFactory.getLogger(HomeController.class);
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private UserService userService;
 
     List<DetailOrder> detail = new ArrayList<DetailOrder>();
 
@@ -56,6 +61,12 @@ public class HomeController {
         detailOrder.setTotal(product.getPrice() * quantity);
         detailOrder.setProduct(product);
 
+        Integer idProduct = product.getId();
+        boolean entered = detail.stream().anyMatch(p -> p.getProduct().getId() == idProduct);
+        if(!entered){
+            detail.add(detailOrder);
+        }
+
         detail.add(detailOrder);
 
         sumTotal = detail.stream().mapToDouble(dt -> dt.getTotal()).sum();
@@ -84,5 +95,19 @@ public class HomeController {
         model.addAttribute("cart", detail);
         model.addAttribute("order", order);
         return "user/cart";
+    }
+    @GetMapping("/getCart")
+    public String getCart(Model model){
+        model.addAttribute("cart", detail);
+        model.addAttribute("order", order);
+        return "/user/cart";
+    }
+    @GetMapping("/order")
+    public String order(Model model){
+        User user = userService.findById(1).get();
+        model.addAttribute("cart", detail);
+        model.addAttribute("order", order);
+        model.addAttribute("user",user);
+        return "user/summarize";
     }
 }
