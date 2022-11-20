@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<div th:include="administrador/template_admin.html::header" ></div>
+<div th:include="admin/template_admin.html::header" ></div>
 <div class="container">
     <h1 class="mt-4 mb-3">
         Spring eCommerce <small>Products</small>
@@ -61,10 +61,8 @@
         </div>
     </form>
 </div>
-<div th:include="administrador/template_admin.html::footer" ></div>
+<div th:include="admin/template_admin.html::footer" ></div>
 <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
 <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-
 </body>
-
 </html>

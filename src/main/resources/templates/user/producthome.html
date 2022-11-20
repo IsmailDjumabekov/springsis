@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Title</title>
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+</head>
+<body>
+<div th:include="user/template_user.html::header"></div>
+<div class="container">
+    <h1 class="mt-4 mb-3">
+        Spring eCommerce <small>Product</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+        <li class="breadcrumb-item active">Product</li>
+    </ol>
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6">
+                    <a href="#"> <img class="img-fluid rounded" th:src="@{/images/{img} (img=${product.image})} " alt="">
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <form th:action="@{/cart}" method="POST">
+                        <input type="hidden" th:value="${product.id}" name="id">
+                        <h2 class="card-title" th:text="${product.name}"></h2>
+                        <ul class="list-group">
+                            <li class="list-group-item"><h5 th:text=" 'Price: '+ ${product.price} "></h5></li>
+                            <li class="list-group-item">
+                                <p th:text=" 'Description: '+ ${product.description} "></p>
+                            </li>
+                            <li class="list-group-item"><h6>
+                                Quantity: <input type="number" id="quantity" name="quantity" autocomplete="off" min="1" max="5" value="1">
+                            </h6></li>
+                        </ul>
+                        <button type="submit" class="btn btn-dark">Añadir al
+                            carrito</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="user/template_user.html::footer" ></div>
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
